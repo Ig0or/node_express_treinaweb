@@ -1,13 +1,9 @@
 import { Router } from "express";
 
+import clientsController from "../controllers/clientsController";
+
 const router = Router();
 
-router.get("/", (request, response) => {
-    response.render("index");
-});
-
-router.get("/sobre", (request, response) => {
-    response.send("about api");
-});
+router.get("/", clientsController.index);
 
 export default router;
