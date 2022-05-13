@@ -7,17 +7,18 @@ function index(request: Request, response: Response, next: any) {
 function product(request: Request, response: Response, next: any) {
     let products = [
         {
-            produto: "Memória Ram",
-            descrição: "16gb",
+            nome: "Memória Ram",
+            descricao: "16gb",
         },
         {
-            produto: "Placa de vídeo",
-            descrição: "8gb",
+            nome: "Placa de vídeo",
+            descricao: "8gb",
         },
     ];
 
-    response.send(`<h1>${products[parseInt(request.params.id)].produto}</h1>
-                <p>${products[parseInt(request.params.id)].descrição}</p>`);
+    let produto = products[parseInt(request.params.id)]
+    response.render('produto', {produto: produto})
+
 }
 
 export default { index, product };
