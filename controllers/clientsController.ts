@@ -1,7 +1,11 @@
 import { Request, Response } from "express";
 
-function index(request: Request, response: Response, next: any) {
-    response.render("index");
+import ClientRepository from "../models/clientsModel";
+import { IClients } from "../models/clients";
+
+async function index(request: Request, response: Response, next: any) {
+    const clients = await ClientRepository.findAll();
+    response.json(clients);
 }
 
 function product(request: Request, response: Response, next: any) {
@@ -16,9 +20,8 @@ function product(request: Request, response: Response, next: any) {
         },
     ];
 
-    let produto = products[parseInt(request.params.id)]
-    response.render('produto', {produto: produto})
-
+    let produto = products[parseInt(request.params.id)];
+    response.render("produto", { produto: produto });
 }
 
 export default { index, product };
