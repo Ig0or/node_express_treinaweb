@@ -5,6 +5,6 @@ import clientsController from "../controllers/clientsController";
 const router = Router();
 
 router.get("/", clientsController.index);
-router.get("/produto/:id", clientsController.product);
+router.get("/client/:id", clientsController.show);
 
 export default router;
