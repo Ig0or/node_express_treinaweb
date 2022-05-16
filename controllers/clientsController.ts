@@ -20,15 +20,28 @@ async function create(request: Request, response: Response, next: any) {
 }
 
 async function store(request: Request, response: Response, next: any) {
-    try{
-        let client = request.body
-        client.id = 0
+    try {
+        let client = request.body;
+        client.id = 0;
         await ClientRepository.create(client);
-    }catch(error){
-        console.log(error)
-        response.status(500).end()
+    } catch (error) {
+        console.log(error);
+        response.status(500).end();
     }
     response.redirect("/clients");
 }
 
-export default { index, show, create, store };
+async function edit(request: Request, response: Response, next: any) {
+    try {
+        const client = await ClientRepository.findByPk(request.params.id);
+        if (!client) {
+            response.status(404).send("client not found");
+        } else {
+            response.status(200).render("edit", { client: client });
+        }
+    } catch (error) {
+        response.status(500).send();
+    }
+}
+
+export default { index, show, create, store, edit };

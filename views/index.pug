@@ -19,4 +19,7 @@ block content
                     td
                         a(href=`/client/${client.id}`) #{client.name}
                     td #{client.email}
-            a(href='/client/create').btn.btn-success New Client
+                    td 
+                        a(href=`/client/${client.id}/edit`).btn.btn-primary Edit 
+
+    a(href='/client/create').btn.btn-success New Client
