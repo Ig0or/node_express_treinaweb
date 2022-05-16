@@ -6,7 +6,7 @@ export default db.define("client", {
         type: Sequelize.INTEGER.UNSIGNED,
         autoIncrement: true,
         primaryKey: true,
-        allowNull: false,
+        allowNull: true,
     },
     name: {
         type: Sequelize.STRING,

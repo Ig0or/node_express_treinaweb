@@ -15,4 +15,20 @@ async function show(request: Request, response: Response, next: any) {
     response.render("show", { client: client });
 }
 
-export default { index, show };
+async function create(request: Request, response: Response, next: any) {
+    response.render("create");
+}
+
+async function store(request: Request, response: Response, next: any) {
+    try{
+        let client = request.body
+        client.id = 0
+        await ClientRepository.create(client);
+    }catch(error){
+        console.log(error)
+        response.status(500).end()
+    }
+    response.redirect("/clients");
+}
+
+export default { index, show, create, store };

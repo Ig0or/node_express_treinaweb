@@ -1,31 +1,26 @@
-doctype html
-head
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous")
-    title Lista de Clientes
-body
-    nav.navbar.navbar-light.bg-light
-        .container-fluid
-    a.navbar-brand(href="#") TreinaWeb 
+extends app.pug
 
-    .container
-        card
-            h5.card-header Details from Client #{client.name}
-            .card-body
-                p
-                    strong ID:
-                    | #{client.id}
-                p 
-                    strong Name:
-                    | #{client.name}
-                p
-                    strong Email:
-                    | #{client.email}
-                p 
-                strong Creation Date:
-                | #{client.createdAt}
-                p 
-                strong Updated Date:
-                | #{client.updatedAt}
-            
+block title 
+    title #{client.name}
+
+block content
+    card
+        h5.card-header Details from Client #{client.name}
+        .card-body
+            p
+                strong ID:
+                | #{client.id}
+            p 
+                strong Name:
+                | #{client.name}
+            p
+                strong Email:
+                | #{client.email}
+            p 
+            strong Creation Date:
+            | #{client.createdAt}
+            p 
+            strong Updated Date:
+            | #{client.updatedAt}
+            a(href='/clients/').btn.btn-success Voltar para a lista
+        

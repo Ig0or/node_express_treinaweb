@@ -1,0 +1,16 @@
+extends app.pug
+
+block title 
+    title Register new client
+
+block content
+    h1 Register new client
+    form(action="/clients", method='post')
+        .mb-3
+            label.form-label(for='name') Name
+            input#name.form-control(type='text' value='' required name='name' placeholder='Type your name')
+        .mb-3
+            label.form-label(for='email') E-mail
+            input#email.form-control(type='text' value='' required name='email' placeholder='Type your e-mail')
+        button(type='submit' value='submit').btn.btn-success Submit
+
