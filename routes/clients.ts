@@ -10,5 +10,6 @@ router.get("/client/create", clientsController.create);
 router.get("/client/:id", clientsController.show);
 router.put("/client/:id", clientsController.update);
 router.get("/client/:id/edit", clientsController.edit);
+router.delete("/client/:id", clientsController.destroy)
 
 export default router;
