@@ -1,7 +1,10 @@
 import { Request, Response } from "express";
 
 import ClientRepository from "../models/clientsModel";
-import { IClients } from "../models/clients";
+
+async function home(request: Request, response: Response, next: any) {
+    response.render("home");
+}
 
 async function index(request: Request, response: Response, next: any) {
     const clients = await ClientRepository.findAll();
@@ -74,4 +77,4 @@ async function destroy(request: Request, response: Response, next: any) {
     }
 }
 
-export default { index, show, create, store, edit, update, destroy };
+export default { index, show, create, store, edit, update, destroy, home };

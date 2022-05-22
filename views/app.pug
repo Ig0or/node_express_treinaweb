@@ -7,9 +7,15 @@ head
     block title
 
 body
-    nav.navbar.navbar-light.bg-light
-        .container-fluid
-    a.navbar-brand(href="/clients") TreinaWeb 
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    .container-fluid 
+        a.navbar-brand(href='/clients') Clients
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbar')
+            span.navbar-toggler-icon 
+        #navbarNav.collapse.navbar-collapse
+            ul.navbar-nav 
+                li.nav-item 
+                    a.nav-link.active(href='/clients') Clients
 
     .container
         block content
